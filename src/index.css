@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+:root {
+  --metric-gap: 309px;
+}
+
+.metric-card {
+  width: 289px;
+  height: 156px;
+  padding: 24px 32px;
+}
+
+.metric-card .metric-value {
+  font-size: 3rem;
+}
+
+.metric-card .metric-label {
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .metric-card {
+    width: 160px;
+    height: 90px;
+    padding: 12px 16px;
+    border-radius: 12px;
+  }
+
+  .metric-card .metric-value {
+    font-size: 1.5rem;
+  }
+
+  .metric-card .metric-label {
+    font-size: 0.65rem;
+  }
+
+  /* Mobile positions — override inline styles */
+  .metric-1 {
+    top: 10% !important;
+    left: 5% !important;
+  }
+
+  .metric-2 {
+    top: 10% !important;
+    left: 50% !important;
+  }
+
+  .metric-3 {
+    bottom: 10% !important;
+    left: 5% !important;
+  }
+
+  .metric-4 {
+    bottom: 10% !important;
+    left: 50% !important;
+  }
+}
