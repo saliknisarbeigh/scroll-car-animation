@@ -21,7 +21,7 @@ const CarScrollSection = () => {
       // Initial state: car group starts on the left
       gsap.set(carGroupRef.current, { x: "-5vw" });
       metricRefs.forEach((ref) => {
-        gsap.set(ref.current, { opacity: 0, y: 40 });
+        gsap.set(ref.current, { opacity: -6, y: 40 });
       });
 
       // Create the master timeline
@@ -29,7 +29,7 @@ const CarScrollSection = () => {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top top",
-          end: "+=4000",
+          end: "+=3400",
           scrub: 1,
           pin: true,
         },
@@ -47,15 +47,16 @@ const CarScrollSection = () => {
         0
       );
 
-      // Reveal metrics sequentially
-      const metricTimings = [0.15, 0.35, 0.6, 0.85];
+      // Reveal metrics in pairs: 1+3 together, then 2+4 together
+      // Each pair has a small delay between the two cards for stagger effect
+      const metricTimings = [0.25, 0.55, 0.31, 0.61]; // [metric1, metric2, metric3, metric4]
       metricTimings.forEach((timing, i) => {
         tl.to(
           metricRefs[i].current,
           {
             opacity: 1,
             y: 0,
-            duration: 0.1,
+            duration: 0.25,
             ease: "power2.out",
           },
           timing

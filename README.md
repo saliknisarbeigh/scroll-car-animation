@@ -1,16 +1,94 @@
-# React + Vite
+# 🚗 Car Scroll Animation
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A smooth, scroll-driven car animation built with **React**, **GSAP ScrollTrigger**, and **Tailwind CSS**. As the user scrolls, a top-down car slides across the screen revealing hidden text and metric cards fade in sequentially.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## React Compiler
+- **Scroll-driven animation** — Car + dark road background slide from left to right, revealing "WELCOME ITZFIZZ" text
+- **Pinned section** — The viewport stays fixed while the animation plays out
+- **Sequential metric reveals** — 4 stat cards fade in at different scroll progress points
+- **Fully responsive** — Metric cards resize and reposition on mobile screens
+- **Smooth performance** — Uses `will-change: transform` and GSAP's optimized rendering
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| Tech | Purpose |
+|------|---------|
+| **React 19** | UI framework |
+| **Vite** | Build tool & dev server |
+| **GSAP + ScrollTrigger** | Scroll-based animations |
+| **Tailwind CSS v4** | Utility-first styling |
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- **Node.js** (v18+)
+- **npm** (v9+)
+
+### Installation
+
+```bash
+# Clone the repo
+git clone https://github.com/saliknisarbeigh/scroll-car-animation.git
+
+# Navigate to the project
+cd scroll-car-animation
+
+# Install dependencies
+npm install
+
+# Start the dev server
+npm run dev
+```
+
+The app will be running at `http://localhost:5173/`
+
+---
+
+## 📁 Project Structure
+
+```
+src/
+├── assets/
+│   └── car.png                # Top-down car image
+├── components/
+│   └── CarScrollSection.jsx   # Main scroll animation component
+├── constants/
+│   └── metrics.js             # Metric card data
+├── App.jsx                    # Root component
+├── main.jsx                   # Entry point
+└── index.css                  # Global styles + responsive rules
+```
+
+---
+
+## 🎬 How It Works
+
+1. **Pinned viewport** — A `100vh` section is pinned using GSAP ScrollTrigger over `4000px` of scroll distance
+2. **Car + road slide** — The car image sits inside a dark background container. Both animate from `x: -5vw` to `x: 84vw` as the user scrolls
+3. **Text reveal** — A green band with "WELCOME ITZFIZZ" sits behind the dark road. As the road slides right, the text is progressively revealed
+4. **Metric cards** — 4 cards (yellow, dark, blue, orange) fade in at 15%, 35%, 60%, and 85% scroll progress
+
+---
+
+## 📱 Responsive Design
+
+- **Desktop** — Metric cards are `289×156px`, positioned at `left: 50%`
+- **Mobile (≤768px)** — Cards shrink to `160×90px` with repositioned layout via CSS media queries
+
+---
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+**Made with ❤️ by [Salik Nisar Beigh](https://github.com/saliknisarbeigh)**
